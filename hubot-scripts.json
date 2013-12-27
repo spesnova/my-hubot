@@ -4,5 +4,8 @@
   "ascii.coffee",
   "beerme.coffee",
   "heroku-status.coffee",
-  "twitter.coffee"
+  "github-status.coffee",
+  "twitter.coffee",
+  "google.coffee",
+  "wikipedia.coffee"
 ]
