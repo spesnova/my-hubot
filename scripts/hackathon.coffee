@@ -61,10 +61,13 @@ module.exports = (robot) ->
       "Wantedly QA": "http://qa.wantedly.com/"
       "Admin Dashboard": "https://staging.wantedly.com/admin",
       "Sales Dashboard": "https://staging.wantedly.com/admin/sales",
+      "Client Funnel": "https://staging.wantedly.com/admin/client_analytics_report/funnel",
+      "Client Cohort": "https://staging.wantedly.com/admin/client_analytics_report/cohort",
       "Base": "https://wantedly.atlassian.net",
       "Heroku Dashboard": "https://dashboard.heroku.com/apps",
       "Facebook Developers Dashboard Wantedly App": "https://developers.facebook.com/x/apps/234170156611754/dashboard/",
-      "GitHub WiKi for wantedly": "https://github.com/wantedly/wantedly/wiki"
+      "GitHub WiKi for wantedly": "https://github.com/wantedly/wantedly/wiki",
+      "HipChat emotions": "http://hipchat-emoticons.nyh.name/"
     }
 
     linkName = null
