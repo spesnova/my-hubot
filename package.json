@@ -29,7 +29,9 @@
     "hubot-hipchat": "2.5.1-5",
     "fuzzy-filter": "0.0.3",
     "cron": "1.0.1",
-    "time": "0.10.0"
+    "time": "0.10.0",
+    "twilio": ">= 0.0.0",
+    "twit": ">= 1.1.6"
   },
 
   "engines": {

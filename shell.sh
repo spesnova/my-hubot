@@ -1,0 +1,19 @@
+#!/bin/bash
+
+export HUBOT_HIPCHAT_TOKEN="jAqz12EY9G7W4VVQKkNgHMmcPPYDEGDWtsOneu94"
+export HUBOT_HIPCHAT_JID="21266_595599@chat.hipchat.com"
+export HUBOT_HIPCHAT_PASSWORD="dLb8uDbwcHH4kFucafFMqtFqEcQyRq"
+export HUBOT_HIPCHAT_ROOMS="21266_team_green@conf.hipchat.com"
+export HUBOT_AUTH_ADMIN="Seigo Uchida"
+export HUBOT_LOG_LEVEL="debug"
+#export HUBOT_GITHUB_TOKEN="70e3fa6440c5a154ba0c1cddc3555368d68486d4"
+#export HUBOT_GITHUB_USER="spesnova"
+#export HUBOT_GITHUB_REPO="spesnova/wantedly"
+#export HUBOT_GITHUB_API="https://api.github.com"
+#export HUBOT_GITHUB_USER_SEIGO="spesnova"
+export HUBOT_TWITTER_CONSUMER_KEY="b0spUi46o0VTJTkmtso4jQ"
+export HUBOT_TWITTER_CONSUMER_SECRET="ChlPnHYB4pYYvaf1E3Jy8zr8oQVaPjB0uNwmDAsikHI"
+export HUBOT_TWITTER_ACCESS_TOKEN="105498262-FVtd0b46uEcmnpmRNiL7YILgx02caKBEgGxRoPNI"
+export HUBOT_TWITTER_ACCESS_TOKEN_SECRET="OghL5FjINSm1BGeH1D8TDmMyDBoepkffESS7jsJ0BvbKT"
+
+bin/hubot

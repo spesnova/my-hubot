@@ -7,9 +7,18 @@
 #   hubot hi|hello - greeting
 #   seigo おされ - hubot following your mention
 #   ( ｰ`дｰ´)ｷﾘｯ - hubot following your mention but only kawasy
+#   search tw <query> <count> - search tweet
 
 fuzzy   = require "fuzzy-filter"
 cronJob = require("cron").CronJob
+Twit = require "twit"
+twitterConfig  = {
+  consumer_key: process.env.HUBOT_TWITTER_CONSUMER_KEY
+  consumer_secret: process.env.HUBOT_TWITTER_CONSUMER_SECRET
+  access_token: process.env.HUBOT_TWITTER_ACCESS_TOKEN
+  access_token_secret: process.env.HUBOT_TWITTER_ACCESS_TOKEN_SECRET
+}
+twitter = new Twit twitterConfig
 
 # TODO(spesnova): change room
 mainRoom = {
@@ -45,7 +54,7 @@ module.exports = (robot) ->
   #
   # link me
   #
-  robot.respond /link( me)?\s*(.*)?/i, (msg) ->
+  robot.respond /link\s(me)?\s*(.*)?/i, (msg) ->
     links = {
       "Wantedly": "https://www.wantedly.com/",
       "Wantedly Staging": "https://staging.wantedly.com/",
@@ -108,7 +117,7 @@ module.exports = (robot) ->
   #
   # Following your mention to seigo
   #
-  robot.hear /@seigo (オシャレ|おしゃれ|オサレ|おされ)/i, (msg) ->
+  robot.hear /@seigo\s(オシャレ|おしゃれ|オサレ|おされ)/i, (msg) ->
     setTimeout () ->
       robot.send mainRoom, "@seigo #{msg.match[1]}〜"
     , 2 * 1000
@@ -121,3 +130,20 @@ module.exports = (robot) ->
       setTimeout () ->
         robot.send mainRoom, "( ｰ`дｰ´)ｷﾘｯ"
       , 1 * 1000
+
+  #
+  # Search keyword in twitter
+  #
+  robot.respond /search\s(tw|twitter|tweet)\s+(\S+)\s?(\d?)/i, (msg) ->
+    message = ""
+    keyword = msg.match[2]
+    count   = msg.match[3] ? 10
+
+    twitter.get "search/tweets", { q: keyword, count: count }, (err, reply) ->
+      return msg.send "@seigo Error has occured at search twitter" if err
+      robot.logger.debug reply.statuses
+      for tweet in reply.statuses
+        message += "#{tweet.user.screen_name}\n"
+        message += "#{tweet.text}\n\n"
+      robot.logger.debug message
+      return msg.send message
