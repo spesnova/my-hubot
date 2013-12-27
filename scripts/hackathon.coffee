@@ -105,23 +105,17 @@ module.exports = (robot) ->
 
     if imgQuery
       imageMe msg, imgQuery, (url) ->
-        # TODO(spesnova) use reply
-        #msg.reply url
-        msg.send url
+        msg.reply url
     else
       if messages[user.name]
-        # TODO(spesnova) use reply
-        #msg.reply messages[user.name]
-        msg.send messages[user.name]
+        msg.reply messages[user.name]
 
   #
   # Greeting
   #
   robot.respond /(hi|hello|good morning|おはよう)/i, (msg) ->
     robot.logger.debug msg
-    # TODO(spesnova) use reply
-    #msg.reply msg.match[1]
-    msg.send msg.match[1]
+    msg.reply msg.match[1]
 
   #
   # Following your mention to seigo
