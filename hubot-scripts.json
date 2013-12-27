@@ -1,1 +1,1 @@
-["redis-brain.coffee", "shipit.coffee", "ascii.coffee"]
+["redis-brain.coffee", "shipit.coffee", "ascii.coffee", "beerme.coffee", "heroku-status.coffee"]
