@@ -82,3 +82,8 @@ module.exports = (robot) ->
 
     msg.reply messages[msg.message.user.name]
 
+  #
+  # Hello
+  #
+  robot.respond /(hi|hello|good morning|おはよう)/i, (msg) ->
+    msg.reply msg.match[1]
