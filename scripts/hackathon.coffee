@@ -10,37 +10,18 @@ fuzzy   = require "fuzzy-filter"
 cronJob = require('cron').CronJob
 
 module.exports = (robot) ->
-#  send = (room, msg) ->
-#    job = new cron '15 10 * * *', () ->
-#      robot.send room, "Hello"
-#    job.start()
 
-  robot.hear /test/i, (msg) ->
-    envelope = {
-      room: 'team_green',
-      user: {
-        id: '550848',
-        jid: '21266_550848@chat.hipchat.com',
-        name: 'Seigo Uchida',
-        mention_name: 'seigo',
-        room: 'team_green',
-        reply_to: '21266_team_green@conf.hipchat.com' },
-      message: {
-        user: [Object],
-        text: 'test',
-        id: undefined,
-        done: false,
-        room: 'team_green'
-      }
+  #
+  # Sandwich notify
+  #
+  new cronJob '0 40 11 * * 1-5', () ->
+    room = {
+      # TODO(spesnova): change room
+      room: '21266_team_green@conf.hipchat.com',
     }
-    #msg.message.user.name.toLowerCase()
-#    robot.send "Seigo Uchida", "hello"
-    robot.logger.info "---"
-    #robot.logger.info msg
-    robot.send envelope
-    robot.messageRoom "aa"
-    robot.logger.info "---"
-    msg.reply ":)"
+    robot.send room, "@aki http://www.kiwikitchen.com/japanese/lunch/images/lunch_chicken.jpg"
+    robot.send room, "@aki A sandwich will come soon!"
+  , null, true, "Asia/Tokyo"
 
   #
   # link me
