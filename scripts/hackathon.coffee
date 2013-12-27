@@ -5,9 +5,9 @@
 #   hubot link me <query> - Lists urls concern wantedly
 #   hubot cheer me - Hubot cheer you :)
 #   hubot hi|hello - greeting
-#   seigo おされ - hubot following your mention
-#   ( ｰ`дｰ´)ｷﾘｯ - hubot following your mention but only kawasy
-#   search tw <query> <count> - search tweet
+#   seigo おされ - Hubot following your mention
+#   ( ｰ`дｰ´)ｷﾘｯ - Hubot following your mention but only kawasy
+#   search tw <query> <count> - Search tweet
 
 fuzzy   = require "fuzzy-filter"
 cronJob = require("cron").CronJob
@@ -85,17 +85,19 @@ module.exports = (robot) ->
   # cheer me
   #
   robot.respond /cheer( me)?/i, (msg) ->
+    user = msg.message.user
     messages = {
       "Naoyoshi Aikawa": "https://s3.amazonaws.com/uploads.hipchat.com/21266/377746/5VBTSFbS7HXGT10/1090934_10151639084846799_1540247221_o.jpg",
       "Seigo Uchida": "http://1.bp.blogspot.com/-kFkBNlTyKXg/TV3HTQd-fYI/AAAAAAAAB2I/jgycUT7SIIw/s1600/redbull02.JPG",
       "Sumida Komugi": "http://omosiro-trend.com/wp-content/uploads/2013/11/matudashouta21.jpg",
       "Rei Kubonaga": "https://s3.amazonaws.com/uploads.hipchat.com/21266/377746/104wwGUnV8AS2gk/1452268_753763324637586_938730497_n__1_.png",
-      "Gaku Hagiwara": "http://userdisk.webry.biglobe.ne.jp/006/533/64/N000/000/000/126590085285716325592_P1020367_20100212000732.JPG"
+      "Gaku Hagiwara": "http://userdisk.webry.biglobe.ne.jp/006/533/64/N000/000/000/126590085285716325592_P1020367_20100212000732.JPG",
+      "Nozomi Umenai": "https://s3.amazonaws.com/uploads.hipchat.com/21266/377746/a5tNZoyIADMorJz/302461_1933404376918_7665875_n.png"
     }
 
     imgQuery = null
 
-    switch msg.message.user.name
+    switch user.name
       when "Gaku Hagiwara" then imgQuery = "肉"
       when "Sumida Komugi" then imgQuery = "松田翔太"
       when "Seigo Uchida"  then imgQuery = "Redbull"
@@ -103,16 +105,23 @@ module.exports = (robot) ->
 
     if imgQuery
       imageMe msg, imgQuery, (url) ->
+        # TODO(spesnova) use reply
+        #msg.reply url
         msg.send url
     else
-      msg.reply messages[msg.message.user.name]
+      if messages[user.name]
+        # TODO(spesnova) use reply
+        #msg.reply messages[user.name]
+        msg.send messages[user.name]
 
   #
   # Greeting
   #
   robot.respond /(hi|hello|good morning|おはよう)/i, (msg) ->
     robot.logger.debug msg
-    msg.reply msg.match[1]
+    # TODO(spesnova) use reply
+    #msg.reply msg.match[1]
+    msg.send msg.match[1]
 
   #
   # Following your mention to seigo
