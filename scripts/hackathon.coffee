@@ -6,6 +6,7 @@
 #   hubot cheer me - Hubot cheer you :)
 #   hubot hi|hello - greeting
 #   seigo おされ - hubot following your mention
+#   ( ｰ`дｰ´)ｷﾘｯ - hubot following your mention but only kawasy
 
 fuzzy   = require "fuzzy-filter"
 cronJob = require("cron").CronJob
@@ -104,9 +105,18 @@ module.exports = (robot) ->
     msg.reply msg.match[1]
 
   #
-  # Following you
+  # Following your mention to seigo
   #
   robot.hear /@seigo (オシャレ|おしゃれ|オサレ|おされ)/i, (msg) ->
     setTimeout () ->
       robot.send mainRoom, "@seigo #{msg.match[1]}〜"
     , 2 * 1000
+
+  #
+  # Following kawasy's mention
+  #
+  robot.hear /\( ｰ`дｰ´\)ｷﾘｯ/i, (msg) ->
+    if msg.message.user.name is "Yoshinori Kawasaki"
+      setTimeout () ->
+        robot.send mainRoom, "( ｰ`дｰ´)ｷﾘｯ"
+      , 1 * 1000
