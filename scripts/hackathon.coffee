@@ -9,18 +9,35 @@
 fuzzy   = require "fuzzy-filter"
 cronJob = require("cron").CronJob
 
+# TODO(spesnova): change room
+mainRoom = {
+  room: '21266_team_green@conf.hipchat.com',
+}
+
+# TODO(spesnova): load from google-images.coffee
+imageMe = (msg, query, animated, faces, cb) ->
+  cb = animated if typeof animated == 'function'
+  cb = faces if typeof faces == 'function'
+  q = v: '1.0', rsz: '8', q: query, safe: 'active'
+  q.imgtype = 'animated' if typeof animated is 'boolean' and animated is true
+  q.imgtype = 'face' if typeof faces is 'boolean' and faces is true
+  msg.http('http://ajax.googleapis.com/ajax/services/search/images')
+    .query(q)
+    .get() (err, res, body) ->
+      images = JSON.parse(body)
+      images = images.responseData?.results
+      if images?.length > 0
+        image  = msg.random images
+        cb "#{image.unescapedUrl}#.png"
+
 module.exports = (robot) ->
 
   #
   # Sandwich notify
   #
   new cronJob '0 40 11 * * 1-5', () ->
-    room = {
-      # TODO(spesnova): change room
-      room: '21266_team_green@conf.hipchat.com',
-    }
-    robot.send room, "@aki http://www.kiwikitchen.com/japanese/lunch/images/lunch_chicken.jpg"
-    robot.send room, "@aki A sandwich will come soon!"
+    robot.send mainRoom, "@aki http://www.kiwikitchen.com/japanese/lunch/images/lunch_chicken.jpg"
+    robot.send mainRoom, "@aki A sandwich will come soon!"
   , null, true, "Asia/Tokyo"
 
   #
@@ -38,13 +55,13 @@ module.exports = (robot) ->
       "Facebook Developers Dashboard Wantedly App": "https://developers.facebook.com/x/apps/234170156611754/dashboard/"
     }
 
-    link_name = null
-    link_name = msg.match[2] if msg.match[2]
+    linkName = null
+    linkName = msg.match[2] if msg.match[2]
 
     message = ""
 
-    if link_name isnt null
-      for name in fuzzy(link_name, Object.keys links)
+    if linkName isnt null
+      for name in fuzzy(linkName, Object.keys links)
         message += "#{name}: #{links[name]}\n"
     else
       for name, url of links
@@ -64,16 +81,16 @@ module.exports = (robot) ->
       "Gaku Hagiwara": "http://userdisk.webry.biglobe.ne.jp/006/533/64/N000/000/000/126590085285716325592_P1020367_20100212000732.JPG"
     }
 
-    img_query = null
+    imgQuery = null
 
     switch msg.message.user.name
-      when "Gaku Hagiwara" then img_query = "肉"
-      when "Sumida Komugi" then img_query = "松田翔太"
-      when "Seigo Uchida"  then img_query = "Redbull"
+      when "Gaku Hagiwara" then imgQuery = "肉"
+      when "Sumida Komugi" then imgQuery = "松田翔太"
+      when "Seigo Uchida"  then imgQuery = "Redbull"
       else
 
-    if img_query
-      imageMe msg, img_query, (url) ->
+    if imgQuery
+      imageMe msg, imgQuery, (url) ->
         msg.send url
     else
       msg.reply messages[msg.message.user.name]
