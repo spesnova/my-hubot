@@ -54,7 +54,8 @@ module.exports = (robot) ->
       "Sales Dashboard": "https://staging.wantedly.com/admin/sales",
       "Base": "https://wantedly.atlassian.net",
       "Heroku Dashboard": "https://dashboard.heroku.com/apps",
-      "Facebook Developers Dashboard Wantedly App": "https://developers.facebook.com/x/apps/234170156611754/dashboard/"
+      "Facebook Developers Dashboard Wantedly App": "https://developers.facebook.com/x/apps/234170156611754/dashboard/",
+      "GitHub WiKi for wantedly": "https://github.com/wantedly/wantedly/wiki"
     }
 
     linkName = null
