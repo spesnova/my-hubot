@@ -63,6 +63,7 @@ module.exports = (robot) ->
       "Sales Dashboard": "https://staging.wantedly.com/admin/sales",
       "Client Funnel": "https://staging.wantedly.com/admin/client_analytics_report/funnel",
       "Client Cohort": "https://staging.wantedly.com/admin/client_analytics_report/cohort",
+      "Earnings": "https://staging.wantedly.com/admin/companies/earnings",
       "Base": "https://wantedly.atlassian.net",
       "Heroku Dashboard": "https://dashboard.heroku.com/apps",
       "Facebook Developers Dashboard Wantedly App": "https://developers.facebook.com/x/apps/234170156611754/dashboard/",
