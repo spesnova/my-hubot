@@ -22,7 +22,7 @@ twitter = new Twit twitterConfig
 
 # TODO(spesnova): change room
 mainRoom = {
-  room: '21266_team_green@conf.hipchat.com',
+  room: process.env.HUBOT_HIPCHAT_ROOMS
 }
 
 # TODO(spesnova): load from google-images.coffee
@@ -50,6 +50,12 @@ module.exports = (robot) ->
     robot.send mainRoom, "@aki http://www.kiwikitchen.com/japanese/lunch/images/lunch_chicken.jpg"
     robot.send mainRoom, "@aki A sandwich will come soon!"
   , null, true, "Asia/Tokyo"
+
+  # TODO(spesnova): remove later
+  robot.respond /sandwich notify/i, (msg) ->
+    robot.send mainRoom, "@aki https://s3.amazonaws.com/uploads.hipchat.com/21266/377746/sZ7K6CVqK9SzDxw/%E3%82%B5%E3%83%B3%E3%83%88%E3%82%99%E3%82%A6%E3%82%A3%E3%83%83%E3%83%81%E3%81%8A%E3%81%97%E3%82%99%E3%81%95%E3%82%93.png"
+    robot.send mainRoom, "@aki http://www.kiwikitchen.com/japanese/lunch/images/lunch_chicken.jpg"
+    robot.send mainRoom, "@aki A sandwich will come soon!"
 
   #
   # link me
@@ -132,7 +138,7 @@ module.exports = (robot) ->
   #
   # Following kawasy's mention
   #
-  robot.hear /\( ｰ`дｰ´\)ｷﾘｯ/i, (msg) ->
+  robot.hear /\( ｰ`дｰ´\)/i, (msg) ->
     if msg.message.user.name is "Yoshinori Kawasaki"
       setTimeout () ->
         robot.send mainRoom, "( ｰ`дｰ´)ｷﾘｯ"
@@ -154,3 +160,9 @@ module.exports = (robot) ->
         message += "#{tweet.text}\n\n"
       robot.logger.debug message
       return msg.send message
+
+  #
+  # Ending
+  #
+  robot.respond /thx/i, (msg) ->
+    msg.send "@all https://s3.amazonaws.com/uploads.hipchat.com/21266/104496/30gvDIGtToFR73h/hubot_ending_remark.jpg"
