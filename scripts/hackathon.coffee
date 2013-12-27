@@ -2,7 +2,9 @@
 #   script in hackathon
 #
 # Commands:
-#   hubot link me <query> - Lists urls for wantedly member
+#   hubot link me <query> - Lists urls concern wantedly
+#   hubot cheer me - Hubot cheer you :)
+#   hubot hi|hello - greeting
 
 fuzzy   = require "fuzzy-filter"
 cronJob = require('cron').CronJob
