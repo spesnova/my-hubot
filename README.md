@@ -1,4 +1,4 @@
-# The Robot for Wantedly
+# The Robot for me
 
 ## Getting Started
 Mac に hubot を入れる
