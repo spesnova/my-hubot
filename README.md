@@ -14,7 +14,7 @@ $ script/bootstrap
 $ script/start
 ```
 
-### Configuring hubot
+### Configuring Your Hubot
 Modify `script/start`, if you need to set a configuration variable.
 
 ```
