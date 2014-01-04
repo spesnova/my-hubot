@@ -14,6 +14,12 @@ $ script/bootstrap
 $ script/start
 ```
 
+specifying adapter to use.
+
+```
+$ script/start hipchat
+```
+
 ### Configuring Your Hubot
 Modify `script/start`, if you need to set a configuration variable.
 
