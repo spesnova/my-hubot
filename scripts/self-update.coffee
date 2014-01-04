@@ -22,7 +22,7 @@ module.exports = (robot) ->
     msg.send "Updating myself, please wait to mention me :)"
     setTimeout () ->
         msg.send "please wait..."
-      , 2 * 1000
+      , 1 * 1000
 
     # TODO(spesnova): create log directory
     exec "sudo chef-client > /home/hubot/self-update.log", (err, stdout, stderr) ->
