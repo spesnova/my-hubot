@@ -17,7 +17,8 @@
 fuzzy = require "fuzzy-filter"
 
 links =
-  "Everything Board - Trello": "https://trello.com/b/hDpuP8JO/everything"
+  "Everything Board - Trello": "https://trello.com/b/hDpuP8JO/everything",
+  "GitHub": "https://github.com"
 
 module.exports = (robot) ->
 
