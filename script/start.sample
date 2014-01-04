@@ -9,9 +9,9 @@
 #   start hipchat - starting hubot with hipchat adapter
 
 #
-# Install npms
+# Check npm dependencies.
 #
-echo "  + Installing npms."
+echo "  + Checking npms."
 npm install
 
 #
