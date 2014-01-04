@@ -1,0 +1,88 @@
+#!/bin/sh
+#
+# bootstrap
+#
+# Prepare hubot development environment.
+
+set -e
+
+#
+# Welcome to Hubot
+#
+echo ""
+echo "      __          __          __   "
+echo "     / /_  __  __/ /_  ____  / /_  "
+echo "    / __ \/ / / / __ \/ __ \/ __/  "
+echo "   / / / / /_/ / /_/ / /_/ / /_    "
+echo "  /_/ /_/\__,_/_.___/\____/\__/    "
+echo ""
+echo "  the robot for you."
+echo ""
+
+#
+# Check for Homebrew
+# 
+if test ! $(which brew)
+then
+  echo "  x You need to install Homebrew:"
+  echo "    ruby -e '\$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)'"
+  exit 1
+else
+  echo "  + Homebrew found."
+fi
+
+#
+# Install node.js
+#
+if test ! $(which node)
+then
+  echo "  + Installing node.js."
+  brew install node.js
+else
+  echo "  + node.js found."
+fi
+
+#
+# Install Redis
+#
+if test ! $(which redis-server)
+then
+  echo "  + Installing redis."
+  brew install redis
+else
+  echo "  + Redis found."
+fi
+
+#
+# Install hubot and coffee-script
+# 
+if test ! $(which hubot) || test ! $(which coffee)
+then
+  echo "  + Installing hubot and coffee-script."
+  npm install -g hubot coffee-script
+else
+  echo "  + hubot and coffee found."
+fi
+
+#
+# Copy starting script
+#
+if test -f "script/start"
+then
+  echo "  + Starting script found."
+else
+  echo "  + Copying starting script"
+  echo "    If you'd like to set hubot config,"
+  echo "    modify script/start."
+  cp script/start.sample script/start
+fi
+
+#
+# Startup instructions
+#
+echo ""
+
+echo "  Good work. We're ready."
+echo "  Run 'script/start' to start your hubot."
+
+exit 0
