@@ -20,7 +20,8 @@ links =
   "Everything Board - Trello": "https://trello.com/b/hDpuP8JO/everything",
   "GitHub": "https://github.com",
   "Management Console - AWS": "https://console.aws.amazon.com/console/home",
-  "Emoji - HipChat": "http://hipchat-emoticons.nyh.name"
+  "Emoji - HipChat": "http://hipchat-emoticons.nyh.name",
+  "Rubular": "http://rubular.com"
 
 module.exports = (robot) ->
 
