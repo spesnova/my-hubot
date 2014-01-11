@@ -21,20 +21,15 @@ $ script/start hipchat
 ```
 
 ### Configuring Your Hubot
-Modify `script/start`, if you need to set a configuration variable.
+Modify `.env`, if you need to set environment variables.
 
 ```
-...
 #
-# Load environment variables.
+# HipChat
 #
-echo "  + Loading environment varibales."
-export HUBOT_AUTH_ADMIN="yourname"
 export HUBOT_HIPCHAT_JID="sample_jid"
 export HUBOT_HIPCHAT_PASSWORD="sample_password"
 export HUBOT_HIPCHAT_ROOMS="sample_rooms"
 export HUBOT_HIPCHAT_TOKEN="sample_token"
-export HUBOT_LOG_LEVEL="debug"
-...
 ```
 
