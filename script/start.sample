@@ -9,13 +9,13 @@
 #   start hipchat - starting hubot with hipchat adapter
 
 #
-# Check npm dependencies.
+# Check npm Dependencies.
 #
 echo "  + Checking npms."
 npm install
 
 #
-# Load environment variables.
+# Load Environment Variables.
 #
 echo "  + Loading environment varibales."
 export HUBOT_AUTH_ADMIN=""
@@ -27,7 +27,7 @@ export HUBOT_HIPCHAT_ROOMS=""
 export HUBOT_HIPCHAT_TOKEN=""
 
 #
-# Start a hubot instance
+# Start a Hubot Instance
 #
 echo "  + Starting your hubot."
 if test $# -eq 1
