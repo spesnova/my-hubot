@@ -65,16 +65,15 @@ else
 fi
 
 #
-# Create Starting Script
+# Create Config
 #
-if test -f "script/start"
+if test -f ".env"
 then
-  echo "  + Starting script found."
+  echo "  + Config file found."
 else
-  echo "  + Creating starting script"
-  echo "    If you'd like to configure your hubot,"
-  echo "    modify script/start."
-  cp script/start.sample script/start
+  echo "  + Creating config file."
+  echo "    If you'd like to configure your hubot, modify '.env'"
+  cp .env.sample .env
 fi
 
 #
