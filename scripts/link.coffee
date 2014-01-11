@@ -19,7 +19,7 @@ links = require "../data/links.json"
 
 module.exports = (robot) ->
 
-  robot.respond /link\s(me)?\s*(.*)?/i, (msg) ->
+  robot.respond /link(\s+me)?(\s+.*)?$/i, (msg) ->
     query = null
     query = msg.match[2] if msg.match[2]
 
