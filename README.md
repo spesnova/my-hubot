@@ -1,14 +1,13 @@
 # My Hubot
 
-## Installation
-### Setup
+## GETTING STARTED
 
 ```
 $ git clone https://github.com/spesnova/my-hubot.git && cd my-hubot
 $ script/bootstrap
 ```
 
-### Starting It Up
+## STARTING IT UP
 
 ```
 $ script/start
@@ -20,7 +19,7 @@ specifying adapter to use.
 $ script/start hipchat
 ```
 
-### Configuring Your Hubot
+## CONFIGURING YOUR HUBOT
 Modify `script/start`, if you need to set a configuration variable.
 
 ```
@@ -37,4 +36,3 @@ export HUBOT_HIPCHAT_TOKEN="sample_token"
 export HUBOT_LOG_LEVEL="debug"
 ...
 ```
-
