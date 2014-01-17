@@ -16,7 +16,7 @@ echo "    / __ \/ / / / __ \/ __ \/ __/  "
 echo "   / / / / /_/ / /_/ / /_/ / /_    "
 echo "  /_/ /_/\__,_/_.___/\____/\__/    "
 echo ""
-echo "  the robot for you."
+echo "  The Robot For You."
 echo ""
 
 #
@@ -32,14 +32,14 @@ else
 fi
 
 #
-# Install node.js
+# Install Node.js
 #
 if test ! $(which node)
 then
   echo "  + Installing node.js."
   brew install node.js
 else
-  echo "  + node.js found."
+  echo "  + Node.js found."
 fi
 
 #
@@ -54,7 +54,7 @@ else
 fi
 
 #
-# Install hubot and coffee-script
+# Install hubot and coffee-script npm
 # 
 if test ! $(which hubot) || test ! $(which coffee)
 then
@@ -65,20 +65,19 @@ else
 fi
 
 #
-# Copy starting script
+# Create Config
 #
-if test -f "script/start"
+if test -f ".env"
 then
-  echo "  + Starting script found."
+  echo "  + Config file found."
 else
-  echo "  + Copying starting script"
-  echo "    If you'd like to set hubot config,"
-  echo "    modify script/start."
-  cp script/start.sample script/start
+  echo "  + Creating config file."
+  echo "    If you'd like to configure your hubot, modify '.env'"
+  cp .env.sample .env
 fi
 
 #
-# Startup instructions
+# Startup Instructions
 #
 echo ""
 
