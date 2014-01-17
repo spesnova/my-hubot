@@ -26,8 +26,8 @@ Modify `.env`, if you need to set environment variables.
 #
 # HipChat
 #
-export HUBOT_HIPCHAT_JID="sample_jid"
-export HUBOT_HIPCHAT_PASSWORD="sample_password"
-export HUBOT_HIPCHAT_ROOMS="sample_rooms"
-export HUBOT_HIPCHAT_TOKEN="sample_token"
+HUBOT_HIPCHAT_JID="sample_jid"
+HUBOT_HIPCHAT_PASSWORD="sample_password"
+HUBOT_HIPCHAT_ROOMS="sample_rooms"
+HUBOT_HIPCHAT_TOKEN="sample_token"
 ```
