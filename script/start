@@ -18,7 +18,7 @@ npm install
 # Load environment variables.
 #
 echo "  + Loading environment varibales."
-cat .env | while read line
+for line in `cat .env`
 do
   if [[ ${line} =~ ^# ]] || [ -z "${line}" ]
   then
