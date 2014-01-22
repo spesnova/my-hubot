@@ -18,13 +18,14 @@ npm install
 # Load environment variables.
 #
 echo "  + Loading environment varibales."
-for line in `cat .env`
+for line in `cat .env | grep -v ^# | grep -v "^ *#"`
 do
-  if [[ ${line} =~ ^# ]] || [ -z "${line}" ]
+  if [ -z "${line}" ]
   then
     continue
   else
     export ${line}
+    echo $line
   fi
 done
 
