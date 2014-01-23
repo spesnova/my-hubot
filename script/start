@@ -25,7 +25,6 @@ do
     continue
   else
     export ${line}
-    echo $line
   fi
 done
 
