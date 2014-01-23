@@ -27,7 +27,7 @@ twitterConfig  = {
 twitter = new Twit twitterConfig
 
 module.exports = (robot) ->
-  robot.respond /search\s(tw|twitter|tweet)\s+(\S+)\s?(\d?)/i, (msg) ->
+  robot.respond /search\s(tw|twitter|tweet)\s+(\S+)\s?(\d+)?/i, (msg) ->
     message = ""
     keyword = msg.match[2]
     n       = 5
