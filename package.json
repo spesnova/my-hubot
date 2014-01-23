@@ -27,7 +27,8 @@
     "hubot":         ">= 2.6.0 < 3.0.0",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
     "hubot-hipchat": "2.5.1-5",
-    "fuzzy-filter": "0.0.3"
+    "fuzzy-filter": "0.0.3",
+    "twit": "1.1.6"
   },
 
   "engines": {
